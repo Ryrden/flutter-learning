@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
+import 'add_expense_page.dart';
 
 /// Home page of the Count Splitter app
 /// Follows Single Responsibility Principle - handles main navigation
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  void _navigateToAddExpense(BuildContext context) {
+    // Mock data for demonstration
+    final mockMembers = [
+      {'id': 'user1', 'name': 'You'},
+      {'id': 'user2', 'name': 'Alice'},
+      {'id': 'user3', 'name': 'Bob'},
+    ];
+
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => AddExpensePage(
+          groupId: 'mock_group_id',
+          currentUserId: 'user1',
+          groupMembers: mockMembers,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +80,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // TODO: Navigate to add expense page
-        },
+        onPressed: () => _navigateToAddExpense(context),
         tooltip: 'Add Expense',
         child: const Icon(Icons.add),
       ),

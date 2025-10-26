@@ -12,25 +12,25 @@ abstract class AppException implements Exception {
 
 /// Exception thrown when a server error occurs
 class ServerException extends AppException {
-  const ServerException(String message, [String? code]) : super(message, code);
+  const ServerException(super.message, [super.code]);
 }
 
 /// Exception thrown when a cache error occurs
 class CacheException extends AppException {
-  const CacheException(String message, [String? code]) : super(message, code);
+  const CacheException(super.message, [super.code]);
 }
 
 /// Exception thrown when validation fails
 class ValidationException extends AppException {
-  const ValidationException(String message, [String? code]) : super(message, code);
+  const ValidationException(super.message, [super.code]);
 }
 
 /// Exception thrown when user is not authorized
 class UnauthorizedException extends AppException {
-  const UnauthorizedException(String message, [String? code]) : super(message, code);
+  const UnauthorizedException(super.message, [super.code]);
 }
 
 /// Exception thrown when resource is not found
 class NotFoundException extends AppException {
-  const NotFoundException(String message, [String? code]) : super(message, code);
+  const NotFoundException(super.message, [super.code]);
 }

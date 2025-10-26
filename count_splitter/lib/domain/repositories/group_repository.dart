@@ -8,7 +8,8 @@ abstract class GroupRepository {
     required String name,
     required String description,
     required String createdBy,
-    List<String> initialMembers = const [],
+    String currency = 'USD',
+    List<GroupMember> initialMembers = const [],
   });
 
   /// Get group by ID
@@ -29,13 +30,20 @@ abstract class GroupRepository {
   /// Add member to group
   Future<Group> addMemberToGroup({
     required String groupId,
-    required String userId,
+    required GroupMember member,
   });
 
   /// Remove member from group
   Future<Group> removeMemberFromGroup({
     required String groupId,
     required String userId,
+  });
+
+  /// Update member in group
+  Future<Group> updateMemberInGroup({
+    required String groupId,
+    required String userId,
+    required GroupMember updatedMember,
   });
 
   /// Delete group

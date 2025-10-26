@@ -1,6 +1,8 @@
+import 'package:equatable/equatable.dart';
+
 /// Represents a user's financial profile for smart expense splitting
 /// Follows Single Responsibility Principle - only handles financial data
-class UserProfile {
+class UserProfile extends Equatable {
   final double monthlyIncome;
   final double monthlyExpenses;
   final double monthlyFunBudget;
@@ -44,22 +46,11 @@ class UserProfile {
   }
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is UserProfile &&
-        other.monthlyIncome == monthlyIncome &&
-        other.monthlyExpenses == monthlyExpenses &&
-        other.monthlyFunBudget == monthlyFunBudget &&
-        other.allowSmartSplit == allowSmartSplit &&
-        other.showAmountsToGroup == showAmountsToGroup;
-  }
-
-  @override
-  int get hashCode {
-    return monthlyIncome.hashCode ^
-        monthlyExpenses.hashCode ^
-        monthlyFunBudget.hashCode ^
-        allowSmartSplit.hashCode ^
-        showAmountsToGroup.hashCode;
-  }
+  List<Object?> get props => [
+        monthlyIncome,
+        monthlyExpenses,
+        monthlyFunBudget,
+        allowSmartSplit,
+        showAmountsToGroup,
+      ];
 }
